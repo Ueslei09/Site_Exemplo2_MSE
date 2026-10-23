@@ -1,0 +1,44 @@
+/* ==========================================
+   CSS Reset Global & Base Styles
+   ========================================== */
+
+/* Box-sizing border-box universal para melhor controlo de tamanhos */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* HTML e Body fluídos */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remover estilos padrão de listas */
+ul, ol {
+  list-style: none;
+}
+
+/* Links sem sublinhado por defeito (opcional, o Bootstrap já gere bem) */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Imagens responsivas por defeito */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Elementos de formulário herdando a fonte correta */
+input, button, textarea, select {
+  font: inherit;
+}
