@@ -1,8 +1,13 @@
-/* ==========================================
-   CSS Reset Global & Base Styles
-   ========================================== */
+/* src/shared/assets/main.css */
+:root {
+  --cosmetic-primary: #FF4D6D;    /* Nova cor vibrante para CTAs e Hover */
+  --cosmetic-lightest: #ECD8E0;   /* Fundo suave */
+  --cosmetic-light: #ECB1C0;      /* Bordas claras */
+  --cosmetic-medium: #C75C71;     /* Secundários */
+  --cosmetic-dark: #791127;       /* Títulos */
+  --cosmetic-darkest: #560F20;    /* Fundo escuro / Texto principal */
+}
 
-/* Box-sizing border-box universal para melhor controlo de tamanhos */
 *,
 *::before,
 *::after {
@@ -11,34 +16,19 @@
   padding: 0;
 }
 
-/* HTML e Body fluídos */
-html,
 body {
-  width: 100%;
-  height: 100%;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--cosmetic-lightest);
+  color: var(--cosmetic-darkest);
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* Remover estilos padrão de listas */
-ul, ol {
-  list-style: none;
+/* Transição global suave para botões e links */
+button, a {
+  transition: all 0.25s ease-in-out;
 }
 
-/* Links sem sublinhado por defeito (opcional, o Bootstrap já gere bem) */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Imagens responsivas por defeito */
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
-
-/* Elementos de formulário herdando a fonte correta */
-input, button, textarea, select {
-  font: inherit;
+/* Foco acessível (A11y) */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid var(--cosmetic-primary) !important;
+  outline-offset: 2px;
 }
