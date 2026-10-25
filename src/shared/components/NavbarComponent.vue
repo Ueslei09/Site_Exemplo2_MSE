@@ -76,7 +76,7 @@
           {{ navbarData.pricingText }}
         </span>
 
-        <!-- Botões: No mobile distribuem-se nas extremidades (justify-content-between ou gap controlado) -->
+        <!-- Botões: No mobile distribuem-se nas extremidades (justify-content-between ou gap controlado) 
         <div class="d-flex align-items-center justify-content-between justify-content-md-end w-100 w-md-auto gap-2">
           <router-link :to="navbarData.ctaSecondary.url" class="btn btn-nav-secondary rounded-pill px-3 py-1 small fw-semibold text-decoration-none text-nowrap" role="button">
             {{ navbarData.ctaSecondary.text }}
@@ -85,7 +85,7 @@
           <button class="btn btn-nav-primary rounded-pill px-3 py-1 small fw-semibold text-white border-0 shadow-sm text-nowrap" type="button">
             {{ navbarData.ctaPrimary.text }}
           </button>
-        </div>
+        </div>-->
       </div>
 
     </div>

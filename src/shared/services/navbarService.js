@@ -11,7 +11,9 @@ export const getNavbarData = () => {
       { name: "Tupperware", target: "#tupperware" },
       { name: "Natura", target: "#natura" },
       { name: "O Boticário", target: "#boticario" },
-      { name: "Jequiti", target: "#jequiti" }
+      { name: "Jequiti", target: "#jequiti" },
+     { name: "Mary Kay", target: "#marykay" },
+     { name: "Demillus", target: "#demillus" }
     ],
     pricingText: "Précommander Angell /S pour 269,00 Euros",
     ctaSecondary: {

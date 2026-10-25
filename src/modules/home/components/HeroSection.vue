@@ -15,8 +15,8 @@
       <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100"></div>
     </div>
 
-    <!-- Conteúdo Principal Flutuante -->
-    <div class="container position-relative z-2 px-3 px-md-5 my-auto pt-5">
+    <!-- CONTEÚDO CONDICIONAL: Apenas exibido se NÃO for o slide principal (Promoção do Dia) -->
+    <div v-if="!currentSlide.isMainHero" class="container position-relative z-2 px-3 px-md-5 my-auto pt-5">
       <div class="row w-100 align-items-center justify-content-start">
         <div class="col-md-9 col-lg-7 col-xl-6">
           
@@ -60,35 +60,35 @@
             </div>
           </transition>
 
-          <!-- Controlos de Navegação (Play/Pause + Dots) -->
-          <div class="d-flex align-items-center gap-3 mt-3 px-2">
-            <button 
-              @click="togglePlayState" 
-              class="play-pause-btn btn rounded-circle d-flex align-items-center justify-content-center p-0 border-0 text-white shadow"
-              :title="isPlaying ? 'Pausar carrossel' : 'Reproduzir carrossel'"
-              type="button"
-            >
-              <svg v-if="isPlaying" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16">
-                <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/>
-              </svg>
-              <svg v-else xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.693-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
-              </svg>
-            </button>
-
-            <div class="d-flex align-items-center gap-2">
-              <button 
-                v-for="(slide, index) in slides" 
-                :key="slide.id"
-                @click="setSlide(index)"
-                :class="['carousel-dot border-0 rounded-pill', { 'active': currentSlideIndex === index }]"
-                :aria-label="'Ir para slide ' + (index + 1)"
-                type="button"
-              ></button>
-            </div>
-          </div>
-
         </div>
+      </div>
+    </div>
+
+    <!-- Controlos de Navegação (Play/Pause + Dots) posicionado RIGOROSAMENTE NO CANTO INFERIOR ESQUERDO -->
+    <div class="hero-controls-container z-3 d-flex align-items-center gap-3">
+      <button 
+        @click="togglePlayState" 
+        class="play-pause-btn btn rounded-circle d-flex align-items-center justify-content-center p-0 border-0 text-white shadow"
+        :title="isPlaying ? 'Pausar carrossel' : 'Reproduzir carrossel'"
+        type="button"
+      >
+        <svg v-if="isPlaying" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16">
+          <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/>
+        </svg>
+        <svg v-else xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+          <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.693-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+        </svg>
+      </button>
+
+      <div class="d-flex align-items-center gap-2">
+        <button 
+          v-for="(slide, index) in slides" 
+          :key="slide.id"
+          @click="setSlide(index)"
+          :class="['carousel-dot border-0 rounded-pill', { 'active': currentSlideIndex === index }]"
+          :aria-label="'Ir para slide ' + (index + 1)"
+          type="button"
+        ></button>
       </div>
     </div>
 
@@ -117,7 +117,7 @@ const currentSlide = computed(() => {
 }
 
 .hero-overlay {
-  background: linear-gradient(to right, rgba(86, 15, 32, 0.55), rgba(0, 0, 0, 0.3));
+  background: linear-gradient(to right, rgba(86, 15, 32, 0.4), rgba(0, 0, 0, 0.2));
 }
 
 .hero-floating-card {
@@ -126,6 +126,13 @@ const currentSlide = computed(() => {
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   max-width: 580px;
+}
+
+/* Posicionamento fixo absoluto rigoroso no Canto Inferior Esquerdo */
+.hero-controls-container {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
 }
 
 .hero-title {

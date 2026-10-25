@@ -12,61 +12,66 @@ export function useHome() {
   const nextSlide = () => {
     if (slides.value.length > 0) {
       currentSlideIndex.value = (currentSlideIndex.value + 1) % slides.value.length
+      if (isPlaying.value) {
+        scheduleNextSlide()
+      }
     }
   }
 
   const prevSlide = () => {
     if (slides.value.length > 0) {
       currentSlideIndex.value = (currentSlideIndex.value - 1 + slides.value.length) % slides.value.length
+      if (isPlaying.value) {
+        scheduleNextSlide()
+      }
     }
   }
 
   const setSlide = (index) => {
     currentSlideIndex.value = index
-    // Se o utilizador clicar manualmente, reinicia o ciclo se estivesse a reproduzir
     if (isPlaying.value) {
-      restartTimer()
+      scheduleNextSlide()
     }
   }
 
-  const startTimer = () => {
-    if (timer) clearInterval(timer)
-    timer = setInterval(() => {
+  const scheduleNextSlide = () => {
+    if (timer) clearTimeout(timer)
+    
+    // Obtém a duração do slide atual (padrão 5000ms, ou 10000ms para o principal)
+    const currentSlide = slides.value[currentSlideIndex.value]
+    const duration = currentSlide?.duration || 5000
+
+    timer = setTimeout(() => {
       nextSlide()
-    }, 5000)
+    }, duration)
+    
     isPlaying.value = true
   }
 
   const pauseTimer = () => {
-    if (timer) clearInterval(timer)
+    if (timer) clearTimeout(timer)
     timer = null
     isPlaying.value = false
-  }
-
-  const restartTimer = () => {
-    if (timer) clearInterval(timer)
-    timer = setInterval(() => {
-      nextSlide()
-    }, 5000)
-    isPlaying.value = true
   }
 
   const togglePlayState = () => {
     if (isPlaying.value) {
       pauseTimer()
     } else {
-      startTimer()
+      scheduleNextSlide()
     }
   }
 
   onMounted(() => {
     slides.value = getHomeSlides()
     loading.value = false
-    startTimer()
+    if (slides.value.length > 0) {
+      scheduleNextSlide()
+    }
   })
 
   onUnmounted(() => {
-    if (timer) clearInterval(timer)
+    if (timer) clearTimeout(timer)
   })
 
   return {
