@@ -1,9 +1,9 @@
 // src/modules/home/services/bestSellingService.js
 
-import tuboCremeImg from '../asserts/tirafundo.png'
+import tuboCremeImg from '../asserts/jequiti1Img (2).png'
 export const getBestSellingData = () => {
   return {
-    title: 'Best Selling Anti-Hair Product This Week',
+    title: 'Hidratante Corporal Chocolate com Carmelo 200ml',
     description: 'Reveal your skin\'s natural radiance with BioCare brightening body lotion. Infused with kojic acid and saffron, this lightweight yet creamy lotion helps visibly brighten your skin tone.',
     productImage: tuboCremeImg,
     productImageAlt: 'Frasco de creme e loção corporal hidratante Bioxgn em destaque',

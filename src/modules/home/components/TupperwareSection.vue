@@ -29,7 +29,7 @@
               
               <!-- Imagem de Fundo a preencher 100% -->
               <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark">
-                <img :src="sectionData.featuredBanner.image" :alt="sectionData.featuredBanner.alt" class="w-100 h-100 object-fit-cover opacity-75" loading="lazy" />
+                <img :src="sectionData.featuredBanner.image" :alt="sectionData.featuredBanner.alt" class="w-100 h-100 object-fit-cover opacity-30" loading="lazy" />
               </div>
 
               <!-- Conteúdo por cima da imagem -->

@@ -1,5 +1,5 @@
 // src/modules/home/services/naturaService.js
-import naturaBannerPerfumaria from '../asserts/home1_imagem.png'
+import naturaBannerPerfumaria from '../asserts/naturaperfume1_imagem.jpg'
 import naturaBannerCabelos from '../asserts/home1_imagem.png'
 import naturaBannerCorpo from '../asserts/home1_imagem.png'
 import naturaBannerOfertas from '../asserts/home1_imagem.png'

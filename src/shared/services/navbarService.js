@@ -15,7 +15,7 @@ export const getNavbarData = () => {
      { name: "Mary Kay", target: "#marykay" },
      { name: "Demillus", target: "#demillus" }
     ],
-    pricingText: "Précommander Angell /S pour 269,00 Euros",
+    pricingText: "Perfume Natura Homem promoção por  269,00 reais",
     ctaSecondary: {
       text: "En savoir plus",
       url: "/pagina-2"

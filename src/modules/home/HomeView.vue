@@ -61,6 +61,13 @@
 
       <TupperwareBannerSection/>
 
+      <div id = "demillus">
+        <DemillusSection/>
+      </div>
+
+      <DemillusCardsSection />
+      <SellerProfileSection/>
+
    <!-- <section class="fake-section py-5 px-4 text-center d-flex flex-column justify-content-center align-items-center" style="background-color: #560F20; color: #ffffff; min-height: 100vh;">
       <div class="container py-5">
         <h2 class="display-4 fw-bold mb-4">Sustentabilidade & Elegância</h2>
@@ -87,5 +94,9 @@ import MaryKayGridSection from '@/modules/home/components/MaryKayGridSection.vue
 import TestimonialsSection from '@/modules/home/components/TestimonialsSection.vue'
 import TupperwareSection from '@/modules/home/components/TupperwareSection.vue'
 import TupperwareBannerSection from '@/modules/home/components/TupperwareBannerSection.vue'
+import DemillusSection from './components/DemillusSection.vue'
+import DemillusCardsSection from '@/modules/home/components/DemillusCardsSection.vue'
+import SellerProfileSection from '@/modules/home/components/SellerProfileSection.vue'
+
 const { homeData, loading } = useHome()
 </script>
